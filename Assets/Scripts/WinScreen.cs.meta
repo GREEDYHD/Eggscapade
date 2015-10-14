@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 029a7fc7d5455e9488d5cfff2d118ac3
+timeCreated: 1443551875
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - Player1Win: {fileID: 21300000, guid: 2a9ef577303d14a4686c13ec0007024e, type: 3}
+  - Player2Win: {fileID: 21300000, guid: ff933f014d0cda34a8461105f97a331f, type: 3}
+  - Player3Win: {fileID: 21300000, guid: 4d5f3bde7aefc8a4a99f351d29dd1f8d, type: 3}
+  - Player4Win: {fileID: 21300000, guid: 174f5151f1594ac49ab408149ca374fa, type: 3}
+  - sKeeper: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
