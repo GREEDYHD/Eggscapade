@@ -1,0 +1,5 @@
+Get Tortoise git
+Go to desired file in which the unity project will go (ie documents)
+right click, git clone
+then set url to desired url (The url where the project is https://github.com/GREEDYHD/Eggscapade.git)
+JOB DONE

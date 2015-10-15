@@ -29,8 +29,6 @@ public class WinScreen : MonoBehaviour
 	{
 		GameObject playerWinner = objectScoreKeeper.GetComponentInParent<ScoreKeeper>().GetWinner();
 	 	
-		Debug.Log (playerWinner.GetComponentInParent<Movement> ().GetID ());
-
 		switch (playerWinner.GetComponentInParent<Movement>().GetID()) //This switches depending on the winning players ID
 		{
 		case 1:
@@ -52,8 +50,8 @@ public class WinScreen : MonoBehaviour
 	}
     public void ActivateLeaderboard()
     {
-        Vector2 screenPosition = new Vector2(Screen.width/2 , Screen.height/2);
+        //Vector2 screenPosition = new Vector2(Screen.width/2 , Screen.height/2);
         mRenderer.material = null;
-        string playerName = "Player";
+        //string playerName = "Player";
     }
 }

@@ -29,14 +29,19 @@ public class EggBomb : MonoBehaviour
         }
 	}
    
-
     void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.tag == "Player" && isBombExploded)
         {
             collider.GetComponentInParent<Movement>().ReSpawn();
             Destroy(gameObject);
-            Debug.Log("Player");
+            Debug.Log("Player " + collider.tag + "hit by bomb");
         }
+		if (collider.tag == "Egg" && isBombExploded)
+		{
+			collider.GetComponentInParent<Egg>().DeSpawn();
+			Destroy(gameObject);
+			Debug.Log("Player " + collider.tag + "hit by bomb");
+		}
     }
 }

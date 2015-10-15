@@ -28,7 +28,7 @@ public class Egg : MonoBehaviour
         } 
     }
 
-    void DeSpawn()
+    public void DeSpawn()
     {
         isSpawned = false;
         sRenderer.sprite = nullSprite;
@@ -43,7 +43,7 @@ public class Egg : MonoBehaviour
     {
         if (isSpawned)
         {
-            if (collider.GetComponentInParent<Movement>().GetTag() == "Player" && !collider.GetComponentInParent<Movement>().CheckEggs())
+			if (collider.GetComponentInParent<Movement>().GetTag() == "Player" && !collider.GetComponentInParent<Movement>().CheckEggs())
             {
                 collider.GetComponentInParent<Movement>().AddEgg();
                 DeSpawn();

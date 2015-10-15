@@ -12,8 +12,7 @@ public class EnemyAI_Patrol : MonoBehaviour
     public Vector3 MoveDirection;
     public Vector3 Velocity;
     public Vector3 TargetPosition;
-	
-    // Update is called once per frame
+	public float turnSpeed = 100;
 
     void Update()
     {
@@ -47,5 +46,8 @@ public class EnemyAI_Patrol : MonoBehaviour
         //get the farmer to look at the current waypoint.
         float angle = Mathf.Atan2(MoveDirection.y, MoveDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+//		float targetAngle = Mathf.Atan2(MoveDirection.y, MoveDirection.x) * Mathf.Rad2Deg;
+//		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, targetAngle), turnSpeed * Time.deltaTime);
     }
 }
