@@ -5,6 +5,8 @@ public class ScoreKeeper : MonoBehaviour
 {
 	public GameObject[] objectPlayers;
 	private int[] scorePlayers;
+	bool leader;
+	bool check;
 
 
 	void Start()
@@ -17,9 +19,10 @@ public class ScoreKeeper : MonoBehaviour
 	void Update()
 	{
 		GetPlayerScores();
+		GetCurrentLeader ();
 	}
 
-	void GetPlayerScores()
+	public void GetPlayerScores()
 	{
 		for (int i = 0; i < objectPlayers.Length; i++)
 		{
@@ -43,6 +46,30 @@ public class ScoreKeeper : MonoBehaviour
 
     void GetCurrentLeader()
     {
+		for (int i = 0; i < objectPlayers.Length; i++) {
+			leader = true;
+			check = true;
+			for (int j = 0; j < scorePlayers.Length; j++) {
+				if (j != i) {
+					if (scorePlayers[i] <= scorePlayers[j]) //matches the highest score to the correct player
+					{
+						check = false;
+					}
+					if (check == false)
+					{
+						leader = false;
+					}
 
+				}
+			}
+			if(leader == true)
+			{
+				objectPlayers[i].GetComponentInParent<Movement>().SetLeaderTrue();
+			}
+			else
+			{
+				objectPlayers[i].GetComponentInParent<Movement>().SetLeaderFalse();
+			}
+		}
     }
 }

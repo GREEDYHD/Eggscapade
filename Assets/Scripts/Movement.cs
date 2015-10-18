@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     private string Horizontal;
     private string Vertical;
     public GameObject objectEggBomb;
+	public bool leaderStatus;
+	public GameObject star;
 
     private string[] controlScheme;
 
@@ -33,13 +35,11 @@ public class Movement : MonoBehaviour
     private float targetAngle;
     public float turnSpeed;
     private bool isControlsEnabled = false;
-	private float timeDelay = 0;
-	private bool isDelayed = false;
-	private SpriteRenderer SprRenderer;
-	private bool isCarryingFishingRod = true;
+
 
     void Start()
     {
+		leaderStatus = false;
         forwardDirection = new Vector2(-1, 0);
         rotationAngle = -90;//0 degrees is up (They all start looking left due to animation)
         maxSpeed = Speed;
@@ -47,14 +47,13 @@ public class Movement : MonoBehaviour
         spawnPoint = transform.position;
         totalEggs = 0;
         RB2D = GetComponent<Rigidbody2D>();
-		SprRenderer = GetComponent<SpriteRenderer> ();
         turnSpeed = 10;
-        isControlsEnabled = true;
+        isControlsEnabled = false;
     }
 	
     void FixedUpdate()
     {
-        if (isControlsEnabled)
+        //if (isControlsEnabled)
         {
             movex = Input.GetAxis("HorizontalPlayer" + playerID);
             movey = Input.GetAxis("VerticalPlayer" + playerID);
@@ -62,20 +61,19 @@ public class Movement : MonoBehaviour
             RB2D.velocity = new Vector2(movex * Speed, movey * Speed);
             forwardDirection = new Vector2 (-movex, -movey);
         }
-        if (Input.GetKeyDown("Use" + playerID) && playerID == 1)
+        if (Input.GetKeyDown("space") && playerID == 1)
         {
             GameObject.Instantiate(objectEggBomb,transform.position,Quaternion.identity);
         }
-		if (isDelayed)
-		{
-			Delay(timeDelay);
-		}
     }
 
     void Update()
     {
         targetAngle = Mathf.Atan2(forwardDirection.y, forwardDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, targetAngle), turnSpeed * Time.deltaTime);
+		if (leaderStatus == true) {
+			//MOVE STAR?!
+		} 
     }
 	
     public void AddEgg()
@@ -89,13 +87,11 @@ public class Movement : MonoBehaviour
         if (numEggs == maxEggs)
         {
             return true;
-        } 
-		else
+        } else
         {
             return false;
         }
     }
-
 	public void SetControls(bool value)
     {
         isControlsEnabled = value;
@@ -113,39 +109,22 @@ public class Movement : MonoBehaviour
         if (collider.tag == "Torch")
         {
             ReSpawn();
-			Delay(2);
-		} 
-//		(Input.GetKeyDown("Use" + playerID) || Input.GetButtonDown("Use" + playerID)
-//				 
+        }       
     }
-//	void OnTriggerStay2D(Collider2D collider)
-//	{
-////		if (collider.name.Substring(0, collider.name.Length - 1) == "spawnPlayer" && isCarryingFishingRod)
-////		{
-////			Debug.Log ("STEAL");
-////			collider.GetComponentInParent<PlayerSpawner>().StealEggs();
-////			isCarryingFishingRod = false;
-////		}
-//	}
-		
-	void Delay(float time)
+
+	public void SetLeaderTrue()
+	{
+		leaderStatus = true;
+	}
+
+	public void SetLeaderFalse()
+	{
+		leaderStatus = false;
+	}
+
+    void Delay(float time)
     {
-		isControlsEnabled = false;
-		isDelayed = true;
-		timeDelay = time;
-		if (timeDelay >= 0)
-		{
-			SprRenderer.color =  Color.Lerp(Color.white, new Color(0,0,0,0), Time.time);
-			timeDelay -= Time.fixedDeltaTime;
-		}
-		else
-		{
-			timeDelay = 0;
-			isControlsEnabled = true;
-			SprRenderer.color =  Color.Lerp(new Color(0,0,0,0),Color.white, Time.time);
-			isDelayed = false;
-			Speed = 3;
-		}
+
     }
 
     public int GetID()
