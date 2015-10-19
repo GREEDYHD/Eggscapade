@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\BankEggs.cs" />
      <Compile Include="Assets\Scripts\ChickenCoop.cs" />
      <Compile Include="Assets\Scripts\ControllerInterface.cs" />
      <Compile Include="Assets\Scripts\Countdown.cs" />
