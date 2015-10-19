@@ -6,25 +6,29 @@ public class EggBomb : MonoBehaviour
     public float bombTimer = 10;
     private SpriteRenderer SR;
     private bool isBombExploded = false;
+    private bool isActive;
 
    	void Start ()
     {
         SR = gameObject.GetComponent<SpriteRenderer>();
+        isActive = false;
 	}
 
 	void FixedUpdate ()
     {
-        bombTimer -= Time.deltaTime;
-        SR.color =  Color.Lerp(Color.white, Color.red, Time.time / bombTimer * 0.2f);
-        if (bombTimer < 0)
+        if (isActive)
         {
-            if(!isBombExploded)
+            bombTimer -= Time.deltaTime;
+            SR.color = Color.Lerp(Color.white, Color.red, Time.time / bombTimer * 0.2f);
+            if (bombTimer < 0)
             {
-                isBombExploded = true;
-            }
-            else
-            {
-                Destroy(gameObject);
+                if (!isBombExploded)
+                {
+                    isBombExploded = true;
+                } else
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 	}
@@ -43,5 +47,11 @@ public class EggBomb : MonoBehaviour
 			Destroy(gameObject);
 			Debug.Log("Player " + collider.tag + "hit by bomb");
 		}
+    }
+
+    public void SetActive()
+    {
+        isActive = true;
+
     }
 }

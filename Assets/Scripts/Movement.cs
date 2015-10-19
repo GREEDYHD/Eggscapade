@@ -35,6 +35,8 @@ public class Movement : MonoBehaviour
 
     public bool isCarryingEggbox = false;
     public bool hasWellies = false;
+    public bool hasItem = false;
+    public bool hasBomb = false;
 
 	
 	void Start()
@@ -68,11 +70,18 @@ public class Movement : MonoBehaviour
 			componentRidgidBody2D.velocity = new Vector2(movex * Speed, movey * Speed);
 
 			forwardDirection = new Vector2 (-movex, -movey);
-
-            if (Input.GetButtonDown("Use" + playerID) && numEggs > 0)
+            
+            if (Input.GetButtonDown("Use" + playerID) && hasWellies == true) //When player presses A button
+            {
+                gameObject.GetComponent<TrailRenderer>().enabled=true; //enabled the trail attactched to the player in the scene
+                Speed = Speed + 1.5f;
+                hasWellies = false;
+            }
+            else if(Input.GetButtonDown("Use" + playerID) && hasBomb == true)
             {
                 this.Instantiate(objectEggBomb,transform.position - new Vector3 (-forwardDirection.x,-forwardDirection.y,0), Quaternion.identity);
-                RemoveEgg();
+                hasBomb = false;
+                objectEggBomb.GetComponentInParent<EggBomb>().SetActive();
             }
         }
 		if (isDelayed)
@@ -89,6 +98,14 @@ public class Movement : MonoBehaviour
         {
 			objectStar.transform.position = transform.position;
 		} 
+
+        if (hasWellies || isCarryingEggbox || hasBomb)
+        {
+            hasItem = true;
+        } else
+        {
+            hasItem= false;
+        }
 	}
 	
 	public void AddEgg()
@@ -135,6 +152,8 @@ public class Movement : MonoBehaviour
 		totalEggs = + numEggs;
 		numEggs = 0;
 		Speed = maxSpeed;
+        gameObject.GetComponent<TrailRenderer>().enabled=false;
+        hasWellies = false;
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider)
@@ -142,31 +161,48 @@ public class Movement : MonoBehaviour
         if (collider.tag == "Torch" && isCarryingEggbox == false)
         {
             ReSpawn();
-            Delay (2);
-        } 
-        else if (collider.tag == "Wellies" && hasWellies == false)
+            Delay(2);
+        }
+
+        if (hasItem == false)
         {
-            hasWellies = true;
-            Destroy(collider.gameObject);
+            if (collider.tag == "Wellies" && hasWellies == false)
+            {
+                hasWellies = true;
+                hasItem = true;
+                Destroy(collider.gameObject);
+            } 
+            else if (collider.tag == "Eggbox" && isCarryingEggbox == false)
+            {
+                isCarryingEggbox = true;
+                hasItem = true;
+                Destroy(collider.gameObject);
+            }
+            else if (collider.tag == "Bomb" && hasBomb == false)
+            {
+                hasBomb = true;
+                hasItem = true;
+                Destroy(collider.gameObject);
+            }
         }
     }
-    //      (Input.GetKeyDown("Use" + playerID) || Input.GetButtonDown("Use" + playerID)
-    //               
-	//	void OnTriggerStay2D(Collider2D collider)
-	//	{
-	//		if (collider.name.Substring(0, collider.name.Length - 1) == "spawnPlayer" && isCarryingFishingRod)
-	//		{
-	//			Debug.Log ("STEAL");
-	//			collider.GetComponentInParent<PlayerSpawner>().StealEggs();
-	//			isCarryingFishingRod = false;
-	//		}
-	//	}
+                   
+//	void OnTriggerStay2D(Collider2D collider)
+//		{
+//			if (collider.name.Substring(0, collider.name.Length - 1) == "spawnPlayer" && isCarryingFishingRod)
+//			{
+//				Debug.Log ("STEAL");
+//				collider.GetComponentInParent<PlayerSpawner>().StealEggs();
+//				isCarryingFishingRod = false;
+//			}
+//		}
 
     void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.tag == "Torch" && isCarryingEggbox == true)
         {
             isCarryingEggbox = false;
+            hasItem = false;
         }
     }
 
@@ -198,10 +234,12 @@ public class Movement : MonoBehaviour
 	public void ReSpawn()
 	{
 		SetControls(false);
+        gameObject.GetComponent<TrailRenderer>().enabled=false; 
 		numEggs = 0;
 		gameObject.transform.position = spawnPoint;
 		Speed = maxSpeed;
         Delay(2);
+        hasItem = false;
 		return;
 	}
 	

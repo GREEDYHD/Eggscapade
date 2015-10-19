@@ -10,12 +10,12 @@ GameObject:
   - 4: {fileID: 499516}
   - 212: {fileID: 21231128}
   - 114: {fileID: 11479880}
-  - 58: {fileID: 5897150}
   - 50: {fileID: 5020850}
   - 58: {fileID: 5890124}
+  - 61: {fileID: 6178424}
   m_Layer: 0
   m_Name: EggBomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.43611145, y: -.861001551, z: -1.5}
+  m_LocalPosition: {x: -6.43611145, y: -.861001551, z: -1.79999995}
   m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,24 +55,24 @@ CircleCollider2D:
   m_GameObject: {fileID: 171920}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 6b971216830ca6045b092ebb28c67396, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!58 &5897150
-CircleCollider2D:
+--- !u!61 &6178424
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171920}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Size: {x: 4.5, y: 4.80000019}
 --- !u!114 &11479880
 MonoBehaviour:
   m_ObjectHideFlags: 1
