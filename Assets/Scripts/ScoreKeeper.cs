@@ -7,6 +7,7 @@ public class ScoreKeeper : MonoBehaviour
 	private int[] scorePlayers;
 	bool leader;
 	bool check;
+	string highScoreFile;
 
 
 	void Start()
@@ -46,20 +47,22 @@ public class ScoreKeeper : MonoBehaviour
 
     void GetCurrentLeader()
     {
-		for (int i = 0; i < objectPlayers.Length; i++) {
+		for (int i = 0; i < objectPlayers.Length; i++)
+		{
 			leader = true;
 			check = true;
-			for (int j = 0; j < scorePlayers.Length; j++) {
-				if (j != i) {
+			for (int j = 0; j < scorePlayers.Length; j++)
+			{
+				if (j != i)
+				{
 					if (scorePlayers[i] <= scorePlayers[j]) //matches the highest score to the correct player
 					{
 						check = false;
 					}
-					if (check == false)
+					if (!check)
 					{
 						leader = false;
 					}
-
 				}
 			}
 			if(leader == true)
@@ -71,5 +74,5 @@ public class ScoreKeeper : MonoBehaviour
 				objectPlayers[i].GetComponentInParent<Movement>().SetLeaderFalse();
 			}
 		}
-    }
+    }		
 }

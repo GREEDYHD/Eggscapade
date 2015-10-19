@@ -1967,11 +1967,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 435809022}
   - 212: {fileID: 435809021}
-  - 114: {fileID: 435809020}
   - 50: {fileID: 435809019}
   - 61: {fileID: 435809018}
   - 58: {fileID: 435809017}
   - 95: {fileID: 435809016}
+  - 114: {fileID: 435809024}
+  - 96: {fileID: 435809023}
   m_Layer: 0
   m_Name: objectPlayer3
   m_TagString: Player
@@ -2037,28 +2038,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!114 &435809020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 435809015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f9068e97e68444db3208da64b22962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 3.5
-  objectEggBomb: {fileID: 0}
-  leaderStatus: 0
-  objectStar: {fileID: 0}
-  maxEggs: 5
-  numEggs: 0
-  totalEggs: 0
-  playerID: 3
-  forwardDirection: {x: 0, y: 0}
-  rotationAngle: 0
-  turnSpeed: 0
 --- !u!212 &435809021
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2097,6 +2076,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1425490941}
   m_RootOrder: 2
+--- !u!96 &435809023
+TrailRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 435809015}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: .25
+  m_StartWidth: .200000003
+  m_EndWidth: .0500000007
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16777215
+  m_MinVertexDistance: .100000001
+  m_Autodestruct: 0
+--- !u!114 &435809024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 435809015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0755e9119a46d4647a30fb40fb5dfab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 3.5
+  objectEggBomb: {fileID: 171920, guid: 6959abd3ee4266e448b321d2b487baaf, type: 2}
+  leaderStatus: 0
+  objectStar: {fileID: 2064603050}
+  maxEggs: 5
+  numEggs: 0
+  totalEggs: 0
+  playerID: 3
+  forwardDirection: {x: 0, y: 0}
+  rotationAngle: 0
+  turnSpeed: 10
+  isCarryingEggbox: 0
+  hasWellies: 0
 --- !u!1001 &447838803
 Prefab:
   m_ObjectHideFlags: 0
@@ -2558,11 +2606,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 622720223}
   - 212: {fileID: 622720222}
-  - 114: {fileID: 622720221}
   - 50: {fileID: 622720220}
   - 61: {fileID: 622720219}
   - 58: {fileID: 622720218}
   - 95: {fileID: 622720217}
+  - 114: {fileID: 622720225}
+  - 96: {fileID: 622720224}
   m_Layer: 0
   m_Name: objectPlayer1
   m_TagString: Player
@@ -2628,28 +2677,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!114 &622720221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 622720216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f9068e97e68444db3208da64b22962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 3.5
-  objectEggBomb: {fileID: 171920, guid: 6959abd3ee4266e448b321d2b487baaf, type: 2}
-  leaderStatus: 0
-  objectStar: {fileID: 0}
-  maxEggs: 5
-  numEggs: 0
-  totalEggs: 0
-  playerID: 1
-  forwardDirection: {x: 0, y: 0}
-  rotationAngle: 0
-  turnSpeed: 0
 --- !u!212 &622720222
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2688,6 +2715,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1425490941}
   m_RootOrder: 0
+--- !u!96 &622720224
+TrailRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 622720216}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: .25
+  m_StartWidth: .200000003
+  m_EndWidth: .0500000007
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 4278190335
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16777215
+  m_MinVertexDistance: .100000001
+  m_Autodestruct: 0
+--- !u!114 &622720225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 622720216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0755e9119a46d4647a30fb40fb5dfab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 3.5
+  objectEggBomb: {fileID: 171920, guid: 6959abd3ee4266e448b321d2b487baaf, type: 2}
+  leaderStatus: 0
+  objectStar: {fileID: 2064603050}
+  maxEggs: 5
+  numEggs: 0
+  totalEggs: 0
+  playerID: 1
+  forwardDirection: {x: 0, y: 0}
+  rotationAngle: 0
+  turnSpeed: 10
+  isCarryingEggbox: 0
+  hasWellies: 0
 --- !u!4 &638089646 stripped
 Transform:
   m_PrefabParentObject: {fileID: 468466, guid: e2ee5ea74fdbc2047966c4f1ef3831ba, type: 2}
@@ -3724,12 +3820,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 1129901107}
   - 212: {fileID: 1129901106}
-  - 114: {fileID: 1129901105}
   - 50: {fileID: 1129901104}
   - 61: {fileID: 1129901103}
   - 58: {fileID: 1129901102}
   - 95: {fileID: 1129901101}
   - 60: {fileID: 1129901108}
+  - 114: {fileID: 1129901110}
+  - 96: {fileID: 1129901109}
   m_Layer: 0
   m_Name: objectPlayer2
   m_TagString: Player
@@ -3795,28 +3892,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!114 &1129901105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1129901100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f9068e97e68444db3208da64b22962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 3.5
-  objectEggBomb: {fileID: 0}
-  leaderStatus: 0
-  objectStar: {fileID: 0}
-  maxEggs: 5
-  numEggs: 0
-  totalEggs: 0
-  playerID: 2
-  forwardDirection: {x: 0, y: 0}
-  rotationAngle: 0
-  turnSpeed: 0
 --- !u!212 &1129901106
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3873,6 +3948,75 @@ PolygonCollider2D:
       - {x: -.410633087, y: -.00669717789}
       - {x: -.092171669, y: -.119185448}
       - {x: .190407753, y: -.113302946}
+--- !u!96 &1129901109
+TrailRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1129901100}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: .25
+  m_StartWidth: .200000003
+  m_EndWidth: .0500000007
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16777215
+  m_MinVertexDistance: .100000001
+  m_Autodestruct: 0
+--- !u!114 &1129901110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1129901100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0755e9119a46d4647a30fb40fb5dfab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 3.5
+  objectEggBomb: {fileID: 171920, guid: 6959abd3ee4266e448b321d2b487baaf, type: 2}
+  leaderStatus: 0
+  objectStar: {fileID: 2064603050}
+  maxEggs: 5
+  numEggs: 0
+  totalEggs: 0
+  playerID: 2
+  forwardDirection: {x: 0, y: 0}
+  rotationAngle: 0
+  turnSpeed: 10
+  isCarryingEggbox: 0
+  hasWellies: 0
 --- !u!1001 &1140902604
 Prefab:
   m_ObjectHideFlags: 0
@@ -4911,11 +5055,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 1608357833}
   - 212: {fileID: 1608357832}
-  - 114: {fileID: 1608357831}
   - 50: {fileID: 1608357834}
   - 61: {fileID: 1608357835}
   - 58: {fileID: 1608357836}
   - 95: {fileID: 1608357837}
+  - 114: {fileID: 1608357839}
+  - 96: {fileID: 1608357838}
   m_Layer: 0
   m_Name: objectPlayer4
   m_TagString: Player
@@ -4923,28 +5068,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1608357831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1608357830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f9068e97e68444db3208da64b22962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 3.5
-  objectEggBomb: {fileID: 0}
-  leaderStatus: 0
-  objectStar: {fileID: 0}
-  maxEggs: 5
-  numEggs: 0
-  totalEggs: 0
-  playerID: 4
-  forwardDirection: {x: 0, y: 0}
-  rotationAngle: 0
-  turnSpeed: 0
 --- !u!212 &1608357832
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5041,6 +5164,75 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!96 &1608357838
+TrailRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1608357830}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: .25
+  m_StartWidth: .200000003
+  m_EndWidth: .0500000007
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16777215
+  m_MinVertexDistance: .100000001
+  m_Autodestruct: 0
+--- !u!114 &1608357839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1608357830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0755e9119a46d4647a30fb40fb5dfab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 3.5
+  objectEggBomb: {fileID: 171920, guid: 6959abd3ee4266e448b321d2b487baaf, type: 2}
+  leaderStatus: 0
+  objectStar: {fileID: 2064603050}
+  maxEggs: 5
+  numEggs: 0
+  totalEggs: 0
+  playerID: 4
+  forwardDirection: {x: 0, y: 0}
+  rotationAngle: 0
+  turnSpeed: 10
+  isCarryingEggbox: 0
+  hasWellies: 0
 --- !u!4 &1616914555 stripped
 Transform:
   m_PrefabParentObject: {fileID: 468466, guid: e2ee5ea74fdbc2047966c4f1ef3831ba, type: 2}
@@ -6472,7 +6664,7 @@ Transform:
   m_GameObject: {fileID: 2064603050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.64600015, y: 4.28200006, z: -1.60000002}
-  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
+  m_LocalScale: {x: .400000006, y: .400000006, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10

@@ -9,8 +9,8 @@ public class PlayerSpawner : MonoBehaviour
     {
         if (spawnID == collider.GetComponentInParent<Movement>().GetID() && collider.GetComponentInParent<Movement>().GetEggs() != 0)//If player of correct ID collides with me and they're carrying eggs then bank their eggs
         {
+			Debug.Log("Player" + collider.GetComponentInParent<Movement>().GetID() + " Banked " + collider.GetComponentInParent<Movement>().GetEggs() + " Eggs");
             collider.GetComponentInParent<Movement>().BankEggs();	
-            Debug.Log("Eggs Banked");
         }
     }
 
